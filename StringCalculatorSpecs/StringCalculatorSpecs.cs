@@ -18,5 +18,28 @@ namespace StringCalculatorSpecs
             var result = sut.Add(value);
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        [TestCase("1\n", 1)]
+        [TestCase("1\n2", 3)]
+        [TestCase("1\n2\n3", 6)]
+        public void ShouldAddNumbersWithNewlineDelimeter(string value, int expected)
+        {
+            var sut = new StringCalculator();
+            var result = sut.Add(value);
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        [TestCase("//;\n1;", 1)]
+        [TestCase("//;\n1;2", 3)]
+        [TestCase("//;\n1;2;3", 6)]
+        [TestCase("//.\n1.2.3", 6)]
+        public void ShouldAddNumberWithUserDefinedDelimeter(string value, int expected)
+        {
+            var sut = new StringCalculator();
+            var result = sut.Add(value);
+            Assert.AreEqual(expected, result);
+        }
     }
 }
