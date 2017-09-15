@@ -41,5 +41,14 @@ namespace StringCalculatorSpecs
             var result = sut.Add(value);
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        [TestCase("//;\n1000;2", 2)]
+        public void ShouldIgnoreNumbersGreaterThan1000(string value, int expected)
+        {
+            var sut = new StringCalculator();
+            var result = sut.Add(value);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

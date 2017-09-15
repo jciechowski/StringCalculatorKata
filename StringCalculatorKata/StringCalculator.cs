@@ -12,14 +12,14 @@ namespace StringCalculatorKata
                 return 0;
             if (value.Length == 1)
                 return int.Parse(value);
-            var separator = string.Empty;
 
-            var numbers = GetNumericValues(value, separator);
-            return numbers.Sum(int.Parse);
+            var numbers = GetNumericValues(value);
+            return numbers.Sum();
         }
 
-        private IEnumerable<string> GetNumericValues(string value, string separator)
+        private IEnumerable<int> GetNumericValues(string value)
         {
+            var separator = string.Empty;
             if (value.StartsWith("/"))
             {
                 separator = value[2].ToString();
@@ -28,7 +28,7 @@ namespace StringCalculatorKata
 
             var separators = new[] {",", "\n", separator};
             var numbers = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            return numbers;
+            return numbers.Select(int.Parse).Where(n => n < 1000);
         }
     }
 }
