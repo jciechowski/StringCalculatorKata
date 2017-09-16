@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using StringCalculatorKata;
+using System;
 
 namespace StringCalculatorSpecs
 {
@@ -49,6 +50,26 @@ namespace StringCalculatorSpecs
             var sut = new StringCalculator();
             var result = sut.Add(value);
             Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        [TestCase("//;\n1;-1")]
+        public void ShouldThrowExceptionForNegativeNumber(string value)
+        {
+            var sut = new StringCalculator();
+            Assert.Throws<ArgumentOutOfRangeException>(() => sut.Add(value));
+        }
+
+
+        [Test]
+        [TestCase("//;\n1;-1", "Negatives are not allowed: -1")]
+        [TestCase("//;\n1;-1,-2", "Negatives are not allowed: -1,-2")]
+        [TestCase("//;\n1;-1,2,-3,4", "Negatives are not allowed: -1,-3")]
+        public void ShouldThrowExceptionWithNegativeValues(string value, string expectedMessage)
+        {
+            var sut = new StringCalculator();
+            var result = Assert.Throws<ArgumentOutOfRangeException>(() => sut.Add(value));
+            Assert.AreEqual(expectedMessage, result.Message);
         }
     }
 }
