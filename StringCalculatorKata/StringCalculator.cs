@@ -13,7 +13,11 @@ namespace StringCalculatorKata
             if (value.Length == 1)
                 return int.Parse(value);
 
-            var numbers = GetNumericValues(value);
+            var numbers = GetNumericValues(value).ToList();
+            var negativesNumbers = numbers.Where(n => n < 0).Select(x => x.ToString()).ToList();
+            var negatives = string.Join(",", negativesNumbers);
+            if (negatives.Any())
+                throw new ArgumentOutOfRangeException($"Negatives are not allowed: {negatives}", new ArgumentOutOfRangeException());
             return numbers.Sum();
         }
 
