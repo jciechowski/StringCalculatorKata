@@ -57,7 +57,7 @@ namespace StringCalculatorSpecs
         public void ShouldThrowExceptionForNegativeNumber(string value)
         {
             var sut = new StringCalculator();
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.Add(value));
+            Assert.Throws<NegativeValuesException>(() => sut.Add(value));
         }
 
 
@@ -68,7 +68,7 @@ namespace StringCalculatorSpecs
         public void ShouldThrowExceptionWithNegativeValues(string value, string expectedMessage)
         {
             var sut = new StringCalculator();
-            var result = Assert.Throws<ArgumentOutOfRangeException>(() => sut.Add(value));
+            var result = Assert.Throws<NegativeValuesException>(() => sut.Add(value));
             Assert.AreEqual(expectedMessage, result.Message);
         }
     }
