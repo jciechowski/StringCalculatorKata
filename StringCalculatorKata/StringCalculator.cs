@@ -19,9 +19,8 @@ namespace StringCalculatorKata
                 return 0;
 
             var numbers = _parser.ParseStringInput(value).ToList();
-            var negatives = _negativesSearcher.GetNegatives(numbers);
-            if (negatives.Any())
-                throw new NegativeValuesException($"Negatives are not allowed: {negatives}");
+            _negativesSearcher.FindNegavites(numbers);
+            
             return numbers.Sum();
         }
     }

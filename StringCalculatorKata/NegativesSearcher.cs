@@ -5,10 +5,11 @@ namespace StringCalculatorKata
 {
     public class NegativesSearcher
     {
-        public string GetNegatives(IEnumerable<int> numbers)
+        public void FindNegavites(IEnumerable<int> numbers)
         {
-            var negativesNumbers = numbers.Where(n => n < 0).Select(x => x.ToString()).ToList();
-            return string.Join(",", negativesNumbers);
+            var negativesNumbers = string.Join(",", numbers.Where(n => n < 0));
+            if (negativesNumbers.Any())
+                throw new NegativeValuesException($"Negatives are not allowed: {negativesNumbers}");
         }
     }
 }
