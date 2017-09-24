@@ -15,12 +15,9 @@ namespace StringCalculatorKata
 
         public int Add(string value)
         {
-            if (string.IsNullOrEmpty(value))
-                return 0;
-
             var numbers = _parser.ParseStringInput(value).ToList();
             _negativesSearcher.FindNegavites(numbers);
-            
+
             return numbers.Sum();
         }
     }

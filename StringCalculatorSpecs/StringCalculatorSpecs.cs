@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using StringCalculatorKata;
-using System;
 
 namespace StringCalculatorSpecs
 {
