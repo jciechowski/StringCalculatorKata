@@ -4,19 +4,19 @@ namespace StringCalculatorKata
 {
     public class StringCalculator
     {
-        private readonly NegativesSearcher _negativesSearcher;
+        private readonly NegativesCatcher _negativesCatcher;
         private readonly InputParser _parser;
 
         public StringCalculator()
         {
-            _negativesSearcher = new NegativesSearcher();
+            _negativesCatcher = new NegativesCatcher();
             _parser = new InputParser();
         }
 
         public int Add(string value)
         {
             var numbers = _parser.ParseStringInput(value).ToList();
-            _negativesSearcher.FindNegavites(numbers);
+            _negativesCatcher.Catch(numbers);
 
             return numbers.Sum();
         }

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InputParserSpecs.cs" />
+    <Compile Include="NegativeSearcherSpecs.cs" />
     <Compile Include="StringCalculatorSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

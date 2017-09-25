@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace StringCalculatorKata
 {
-    public class NegativesSearcher
+    public class NegativesCatcher
     {
-        public void FindNegavites(IEnumerable<int> numbers)
+        public void Catch(IEnumerable<int> numbers)
         {
             var negativesNumbers = string.Join(",", numbers.Where(n => n < 0));
             if (negativesNumbers.Any())

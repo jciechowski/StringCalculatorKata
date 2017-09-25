@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InputParser.cs" />
-    <Compile Include="NegativesSearcher.cs" />
+    <Compile Include="NegativesCatcher.cs" />
     <Compile Include="NegativeValuesException.cs" />
     <Compile Include="StringCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
